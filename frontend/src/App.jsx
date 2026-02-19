@@ -3,7 +3,7 @@ import SpectralPlot from './components/SpectralPlot'
 import { ELEMENTS } from './data/elements'
 import './App.css'
 import { wavelengthToRGB } from './utils/wavelengthToRGB'
-import { wavelengthRegion } from './utils/wavelengthRegion'
+import { wavelengthRegion,transitionEnergy } from './utils/wavelengthRegion'
 function App() {
   const [selected, setSelected] = useState(ELEMENTS[0]);
 
@@ -40,6 +40,7 @@ function App() {
               <th>Wavelength (nm)</th>
               <th>Relative Intensity</th>
               <th>Region</th>
+              <th>Transition</th>
             </tr>
           </thead>
           <tbody>
@@ -76,6 +77,9 @@ function App() {
   }}>
     {wavelengthRegion(line.wavelength).label}
   </span>
+</td>
+<td style={{ color: transitionEnergy(line.wavelength).color, fontSize: '12px' }}>
+  {transitionEnergy(line.wavelength).label}
 </td>
     </tr>
   ))}

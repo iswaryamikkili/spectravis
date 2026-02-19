@@ -9,3 +9,8 @@ export function wavelengthRegion(wl) {
   if (wl <= 700) return { label: 'Red', color: '#ef4444' }
   return { label: 'Infrared', color: '#991b1b' }
 }
+export function transitionEnergy(wl) {
+  if (wl < 450) return { label: 'High Energy', color: '#a855f7' }
+  if (wl < 580) return { label: 'Medium Energy', color: '#22c55e' }
+  return { label: 'Low Energy', color: '#ef4444' }
+}
