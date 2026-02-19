@@ -3,6 +3,7 @@ import SpectralPlot from './components/SpectralPlot'
 import { ELEMENTS } from './data/elements'
 import './App.css'
 import { wavelengthToRGB } from './utils/wavelengthToRGB'
+import { wavelengthRegion } from './utils/wavelengthRegion'
 function App() {
   const [selected, setSelected] = useState(ELEMENTS[0]);
 
@@ -38,6 +39,7 @@ function App() {
               <th>Color</th>
               <th>Wavelength (nm)</th>
               <th>Relative Intensity</th>
+              <th>Region</th>
             </tr>
           </thead>
           <tbody>
@@ -67,6 +69,14 @@ function App() {
             <span>{(line.intensity * 100).toFixed(0)}%</span>
           </div>
         </td>
+      <td>
+  <span style={{
+    color: wavelengthRegion(line.wavelength).color,
+    fontSize: '12px'
+  }}>
+    {wavelengthRegion(line.wavelength).label}
+  </span>
+</td>
     </tr>
   ))}
 </tbody>
