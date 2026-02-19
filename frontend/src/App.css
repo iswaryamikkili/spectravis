@@ -67,3 +67,10 @@ td {
 tr:hover td {
   background: #111827;
 }
+.description {
+  color: #9ca3af;
+  font-size: 13px;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}

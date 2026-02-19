@@ -29,46 +29,46 @@ function App() {
       <div className="info">
         <h2>
           {selected.name} ({selected.symbol})
+          
         </h2>
-
+         <p className="description">{selected.description}</p>
         <table>
           <thead>
             <tr>
+              <th>Color</th>
               <th>Wavelength (nm)</th>
-              <th>Intensity</th>
+              <th>Relative Intensity</th>
             </tr>
           </thead>
           <tbody>
             {selected.spectralLines.map((line) => (
               <tr key={line.wavelength}>
               <td>
-
         <span style={{
-
           display: 'inline-block',
-
           width: '10px',
-
           height: '10px',
-
           borderRadius: '50%',
-
           background: wavelengthToRGB(line.wavelength),
-
-          marginRight: '8px'
-
+          
         }} />
-
-        {line.wavelength}
-
+     </td>
+     <td>   
+      {line.wavelength}
       </td>
-
-      <td>{(line.intensity * 100).toFixed(0)}%</td>
-
+      <td>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{
+              width: `${line.intensity * 150}px`,
+              height: '6px',
+              borderRadius: '3px',
+              background: wavelengthToRGB(line.wavelength)
+            }} />
+            <span>{(line.intensity * 100).toFixed(0)}%</span>
+          </div>
+        </td>
     </tr>
-
   ))}
-
 </tbody>
         </table>
       </div>
