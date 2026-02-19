@@ -1,13 +1,12 @@
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
-import { ELEMENTS } from '../data/elements'
 import { wavelengthToRGB } from '../utils/wavelengthToRGB'
-function SpectralPlot() {
+function SpectralPlot({element}) {
   const svgRef = useRef(null)
 
   useEffect(() => {
-    const element = ELEMENTS[0]
-    const lines = element.spectralLines
+    const {spectralLines: lines}=element
+   
 
     const width = 800
     const height = 300
@@ -35,7 +34,7 @@ function SpectralPlot() {
         .attr('stroke', wavelengthToRGB(line.wavelength))
         .attr('stroke-width', 2)
     })
-  }, [])
+  }, [element])
 
   return <svg ref={svgRef} />
 }
