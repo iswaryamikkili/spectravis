@@ -8,7 +8,7 @@ function App() {
   const [selected, setSelected] = useState(ELEMENTS[0]);
 
   return (
-    <>
+    
       <div className="app">
         <h1>SPECTRAVIS</h1>
 
@@ -23,9 +23,13 @@ function App() {
             </button>
           ))}
         </div>
-
+       <div className="dashboard">
+        <div className="panel">
         <SpectralPlot element={selected} />
       </div>
+    <div className="panel" style={{ minWidth: '340px' }}>
+          <h2>{selected.name} ({selected.symbol})</h2>
+          <p className="description">{selected.description}</p>
 
       <div className="info">
         <h2>
@@ -78,7 +82,10 @@ function App() {
     {wavelengthRegion(line.wavelength).label}
   </span>
 </td>
-<td style={{ color: transitionEnergy(line.wavelength).color, fontSize: '12px' }}>
+<td style={{ color: transitionEnergy(line.wavelength).color, 
+fontSize: '12px' 
+}}
+>
   {transitionEnergy(line.wavelength).label}
 </td>
     </tr>
@@ -86,7 +93,9 @@ function App() {
 </tbody>
         </table>
       </div>
-    </>
+   </div>
+  </div>
+</div> 
   );
 }
 
